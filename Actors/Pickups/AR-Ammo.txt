@@ -343,12 +343,14 @@ ACTOR ARCLSP1 : RandomSpawner replaces Clip
 {
 	DropItem ARAMSPR1 256, 4
 	DropItem ARAMSPC1 256, 6
+	DropItem ARAMSPH1 256, 10
 }
 
 ACTOR ARCLSP2 : RandomSpawner replaces Clipbox
 {
 	DropItem ARAMSPR2 256, 4
 	DropItem ARAMSPC2 256, 6
+	DropItem ARAMSPH2 256, 10
 }
 
 //==============================================================================
@@ -357,15 +359,11 @@ ACTOR ARCLSP2 : RandomSpawner replaces Clipbox
 ACTOR ARSHSP1 : RandomSpawner replaces Shell
 {
 	DropItem ARAMSPS1 256, 5
-	DropItem ARAMSPS1 256, 5
-	DropItem ARAMSPH1 256, 5
 }
 
 ACTOR ARSHSP2 : RandomSpawner replaces Shellbox
 {
 	DropItem ARAMSPS2 256, 5
-	DropItem ARAMSPS2 256, 5
-	DropItem ARAMSPH2 256, 5
 }
 
 //==============================================================================
