@@ -1,0 +1,863 @@
+//==============================================================================
+// Custom Player Classes
+//==============================================================================
+ACTOR InvisiblePlayer : DoomPlayer {} //Just for inheriting purposes
+
+//==============================================================================
+// Items for class-specific using
+//==============================================================================
+ACTOR StartingAnimation : Inventory { Inventory.MaxAmount 1 } //Intro Stuff
+ACTOR UpgradeToken	    : Inventory { Inventory.MaxAmount 1 } //Weapon Stuff
+//==============================================================================
+ACTOR ScientistDummy	: Inventory { Inventory.MaxAmount 1 } //Stella
+ACTOR TrooperDummy 		: Inventory { Inventory.MaxAmount 1 } //Blake
+ACTOR SoldierDummy 		: Inventory { Inventory.MaxAmount 1 } //Mikhail
+ACTOR LowtechDummy 		: Inventory { Inventory.MaxAmount 1 } //Simon
+ACTOR RangerDummy 		: Inventory { Inventory.MaxAmount 1 } //Derrick
+ACTOR FutureDummy 		: Inventory { Inventory.MaxAmount 1 } //Luc
+ACTOR ReconDummy 		: Inventory { Inventory.MaxAmount 1 } //Marion
+
+//==============================================================================
+// Blake Kliessen (Combat Janitor, Exterminator Trooper)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineTrooper : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 120
+	Speed 0.9
+	DamageFactor "Normal", 1.0
+	Mass 120
+	XScale 0.8
+	YScale 0.85
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 120
+	Player.SideMove 0.9
+	PainChance 255
+	Player.JumpZ 9
+	Player.SoundClass "ARTRPL1"
+	Player.DisplayName "Blake Kliessen"
+	Player.Portrait ARTRPH1
+	Player.ViewHeight 37
+	Player.AttackZOffset 15
+	Player.MugShotMaxHealth -1
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARTRWPB, ARTRWPA
+	Player.Weaponslot 2, ARTR2AD, ARTR1AD, ARTR1AC, ARTRWPD, ARTRWPC
+	Player.Weaponslot 3, ARTRWPF, ARTRWPE
+	Player.Weaponslot 4, ARTR1AH, ARTRWPH, ARTRWPG
+	Player.Weaponslot 5, ARTRWPJ, ARTRWPI
+	Player.Weaponslot 6, ARTR1AL, ARTRWPL, ARTRWPK
+	Player.Weaponslot 7, ARTRWPN, ARTRWPM
+*/
+	
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARTRWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARTRWPC"
+	Player.StartItem "ARTRWPA"
+	Player.StartItem "ARTRWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "TrooperDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+	
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WACReload", 15
+	Player.StartItem "WADReload", 5
+	Player.StartItem "WAEReload", 6
+	Player.StartItem "WAFReload", 2
+	Player.startitem "WAGReload", 32
+	Player.startitem "WAHReload", 20
+	Player.startitem "WAJReload", 6
+	Player.startitem "WAKReload", 200
+	Player.startitem "WAMReload", 100
+	Player.startitem "WANReload", 5
+//==============================================================================
+	Player.StartItem "UACReload" 30
+	Player.StartItem "UADReload", 6
+	Player.StartItem "VADReload", 6
+	Player.startitem "UAHReload" 40
+//==============================================================================
+	States
+	{
+	Spawn:
+		PLAY A -1
+		Loop
+	See:
+		PLAY ABCD 4
+		Loop
+	Missile:
+		PLAY E 12
+		Goto Spawn
+	Melee:
+		PLAY F 6 BRIGHT
+		Goto Missile
+	Pain:
+		PLAY G 4
+		PLAY G 4 A_Pain
+		Goto Spawn
+	Death:
+		PLAY H 0 A_PlayerSkinCheck("AltSkinDeath")
+	Death1:
+		PLAY H 6
+		PLAY I 6 A_PlayerScream
+		PLAY J 6 A_NoBlocking
+		PLAY KLM 6
+		PLAY N -1
+		Stop
+	XDeath:
+		PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath")
+	XDeath1:
+		PLAY O 5
+		PLAY P 5 A_XScream
+		PLAY Q 5 A_NoBlocking
+		PLAY RSTUV 5
+		PLAY W -1
+		Stop
+	AltSkinDeath:
+		PLAY H 6
+		PLAY I 6 A_PlayerScream
+		PLAY JK 6
+		PLAY L 6 A_NoBlocking
+		PLAY MNO 6
+		PLAY P -1
+		Stop
+	AltSkinXDeath:
+		PLAY Q 5 A_PlayerScream
+		PLAY R 0 A_NoBlocking
+		PLAY R 5 A_SkullPop
+		PLAY STUVWX 5
+		PLAY Y -1
+		Stop
+	}
+}
+
+//==============================================================================
+// Derrick Carrington Wolfe (Spider Extermination Ranger)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineRanger : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 90
+	Speed 1.2
+	DamageFactor "Normal", 1.0
+	GibHealth 10	
+	PainChance 255
+	Mass 90
+	XScale 0.7
+	YScale 0.75
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 90
+	Player.AttackZOffset 14
+	Player.SoundClass "ARRGPL1"
+	Player.DisplayName "Derrick Wolfe"
+	Player.ViewHeight 40
+	Player.Portrait ARRGPH1
+	Player.SideMove 1.2
+	Player.JumpZ 9
+
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARRGWPB, ARRGWPA
+	Player.Weaponslot 2, ARRG1BD, ARRG1BC, ARRGWPD, ARRGWPC
+	Player.Weaponslot 3, ARRGWPF, ARRGWPE
+	Player.Weaponslot 4, ARRG1BH, ARRGWPH, ARRGWPG
+	Player.Weaponslot 5, ARRGWPJ, ARRGWPI
+	Player.Weaponslot 6, ARRGWPL, ARRGWPK
+	Player.Weaponslot 7, ARRG1BN, ARRGWPN, ARRGWPM
+*/
+
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARRGWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARRGWPC"
+	Player.StartItem "ARRGWPA"
+	Player.StartItem "ARRGWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "RangerDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WBCReload", 13
+	Player.StartItem "WBDReload", 7
+	Player.StartItem "WBEReload", 6
+	Player.StartItem "WBFReload", 3
+	Player.startitem "WBGReload", 45
+	Player.startitem "WBHReload", 35
+	Player.startitem "WBJReload", 1
+	Player.startitem "WBKReload", 50
+	Player.StartItem "WBMReload", 50
+	Player.StartItem "WBNReload", 5
+//==============================================================================
+	Player.StartItem "UBCReload", 16
+	Player.StartItem "UBDReload", 9
+	Player.StartItem "VBDReload", 18
+	Player.startitem "UBHReload", 80
+	Player.StartItem "UBNReload", 5
+//==============================================================================
+	States
+	{
+	Spawn:
+		RANG A -1
+		stop
+	See:
+		RANG ABCD 4 
+		loop
+	Missile:
+		RANG E 10
+		goto Spawn
+	Melee:
+		RANG F 5 BRIGHT
+		goto Missile
+	Pain:
+		RANG G 4
+		RANG G 4 A_Pain
+		Goto Spawn
+	Death:
+		RANG H 6 A_PlayerScream
+		RANG I 6 
+		RANG J 6 A_NoBlocking
+		RANG KLM 6
+		RANG N -1
+		Stop
+	XDeath:
+		RANG H 4 A_TossGib
+		RANG I 4 A_XScream
+		RANG J 4 A_NoBlocking
+		RANG KLM 4 A_TossGib
+		RANG N -1 A_TossGib
+		Stop
+	}
+}
+
+//==============================================================================
+// Marion Callahan (B.O.S.S. Foxtrot Team, Recon Squad)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineRecon : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 100
+	Speed 1.1
+	DamageFactor "Normal", 1.0
+	Mass 100
+	XScale 1.03
+	YScale 1.06
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 100
+	PainChance 255
+	Player.JumpZ 9
+	Player.SoundClass "ARRCPL1"
+	Player.DisplayName "Marion Callahan"
+	Player.Portrait ARRCPH1
+	Player.SideMove 1.1
+	Player.ViewHeight 39
+	Player.AttackZOffset 15
+	Player.MugShotMaxHealth -1
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARRCWPB, ARRCWPA
+	Player.Weaponslot 2, ARRC1CD, ARRCWPD, ARRCWPC
+	Player.Weaponslot 3, ARRC1CE, ARRCWPF, ARRCWPE
+	Player.Weaponslot 4, ARRC1CH, ARRC1CG, ARRCWPH, ARRCWPG
+	Player.Weaponslot 5, ARRCWPJ, ARRCWPI
+	Player.Weaponslot 6, ARRCWPL, ARRCWPK
+	Player.Weaponslot 7, ARRCWPN, ARRCWPM
+*/
+
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARRCWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARRCWPC"
+	Player.StartItem "ARRCWPA"
+	Player.StartItem "ARRCWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "ReconDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WCCReload", 15
+	Player.StartItem "WCDReload", 6
+	Player.StartItem "WCEReload", 4
+	Player.startitem "WCFReload", 9
+	Player.StartItem "WCGReload", 30
+	Player.StartItem "WCHReload", 25
+	Player.StartItem "WCJReload", 1
+	Player.StartItem "WCKReload", 100
+	Player.StartItem "WCMReload", 100
+	Player.startitem "WCNReload", 10
+//==============================================================================
+	Player.StartItem "UCEReload" 8
+	Player.StartItem "UCCReload" 30
+	Player.StartItem "UCDReload" 7
+	Player.StartItem "UCGReload" 60
+	Player.StartItem "UCHReload" 42
+//==============================================================================
+	States
+	{
+	Spawn:
+		MCLN A -1
+		Loop
+	See:
+		MCLN ABCD 4
+		Loop
+	Missile:
+		MCLN E 12
+		Goto Spawn
+	Melee:
+		MCLN F 6 BRIGHT
+		Goto Missile
+	Pain:
+		MCLN G 4
+		MCLN G 4 A_Pain
+		Goto Spawn
+	Death:
+		MCLN H 0 A_PlayerSkinCheck("AltSkinDeath")
+	Death1:
+		MCLN H 6 A_PlayerScream
+		MCLN I 10 
+		MCLN J 6 A_NoBlocking
+		MCLN K 6
+		MCLN L -1
+		Stop
+	XDeath:
+		MCLN O 0 A_PlayerSkinCheck("AltSkinXDeath")
+	XDeath1:
+		PLAY O 5
+		PLAY P 5 A_XScream
+		PLAY Q 5 A_NoBlocking
+		PLAY RSTUV 5
+		PLAY W -1
+		Stop
+	AltSkinDeath:
+		MCLN H 6 A_PlayerScream
+		MCLN I 10 
+		MCLN J 6 A_NoBlocking
+		MCLN K 6
+		MCLN L -1
+		Stop
+	AltSkinXDeath:
+		PLAY Q 5 A_PlayerScream
+		PLAY R 0 A_NoBlocking
+		PLAY R 5 A_SkullPop
+		PLAY STUVWX 5
+		PLAY Y -1
+		Stop
+	}
+}
+
+//==============================================================================
+// Stella Gibson Ariyasu (M.E.T.A. Scientist)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineScientist : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 110
+	Speed 1.0
+	DamageFactor "Normal", 1.0
+	GibHealth 10	
+	PainChance 255
+	Mass 110
+	XScale 0.85
+	YScale 0.9
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 110
+	Player.AttackZOffset 14
+	Player.SoundClass "ARSCPL1"
+	Player.DisplayName "Stella Gibson"
+	Player.ViewHeight 47
+	Player.Portrait ARSCPH1
+	Player.SideMove 1.0
+	Player.JumpZ 9
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARSCWPB, ARSCWPA
+	Player.Weaponslot 2, ARSC1DD, ARSCWPD, ARSCWPC, ARSC1DC
+	Player.Weaponslot 3, ARSCWPF, ARSCWPE
+	Player.Weaponslot 4, ARSCWPH, ARSC1DG, ARSCWPG
+	Player.Weaponslot 5, ARSCWPJ, ARSCWPI
+	Player.Weaponslot 6, ARSCWPL, ARSCWPK
+	Player.Weaponslot 7, ARSCWPN, ARSCWPM, ARSC1DN
+*/
+
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARSCWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARSCWPC"
+	Player.StartItem "ARSCWPA"
+	Player.StartItem "ARSCWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "ScientistDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WDCReload", 13
+	Player.StartItem "WDDReload", 6
+	Player.StartItem "WDEReload", 7
+	Player.StartItem "WDFReload", 18
+	Player.StartItem "WDGReload", 20
+	Player.StartItem "WDHReload", 30
+	Player.StartItem "WDJReload", 6
+	Player.StartItem "WDKReload", 80
+	Player.StartItem "WDMReload", 80
+	Player.StartItem "WDNReload", 10
+//==============================================================================
+	Player.StartItem "UDCReload", 16
+	Player.StartItem "UDDReload", 12
+	Player.StartItem "UDGReload", 40
+	Player.StartItem "UDNReload", 15
+	States
+	{
+	Spawn:
+		ILLP A -1
+		stop
+	See:
+		ILLP ABCD 4 
+		loop
+	Missile:
+		ILLP E 8
+		ILLP F 4
+		goto Spawn
+	Melee:
+		ILLP F 6
+		goto Missile
+	Pain:
+		ILLP G 4
+		ILLP G 4 A_Pain
+		Goto Spawn
+	Death:
+		ILLP H 3
+		ILLP I 3 A_PlayerScream
+		ILLP J 3 A_NoBlocking
+		ILLP KLM 4
+		ILLP N -1
+		Stop
+	XDeath:
+		NULL A 0
+		ILLP O 5 A_TossGib
+		ILLP P 5 A_XScream
+		ILLP Q 5 A_NoBlocking
+		ILLP RSTUV 5 A_TossGib
+		ILLP W -1 A_TossGib
+		Stop
+	}
+}
+
+//==============================================================================
+// Simon Kersey (Time Traveller, general fixer)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineLowtech : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 115
+	Speed 1.15
+	DamageFactor "Normal", 1.0
+	Mass 120
+	XScale 0.7
+	YScale 0.65
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 115
+	Player.SideMove 1.15
+	PainChance 255
+	Player.JumpZ 9
+	Player.SoundClass "ARLTPL1"
+	Player.DisplayName "Simon Kersey"
+	Player.Portrait ARLTPH1
+	Player.ViewHeight 39
+	Player.AttackZOffset 15
+	Player.MugShotMaxHealth -1
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARLTWPB, ARLTWPA
+	Player.Weaponslot 2, ARLT1ED, ARLT1EC, ARLTWPD, ARLTWPC
+	Player.Weaponslot 3, ARLTWPF, ARLTWPE
+	Player.Weaponslot 4, ARLTWPH, ARLTWPG
+	Player.Weaponslot 5, ARLTWPJ, ARLTWPI
+	Player.Weaponslot 6, ARLTWPL, ARLTWPK
+	Player.Weaponslot 7, ARLT1EN, ARLT1EM, ARLTWPN, ARLTWPM
+*/
+	
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARLTWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARLTWPC"
+	Player.StartItem "ARLTWPA"
+	Player.StartItem "ARLTWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "LowtechDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+	
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WECReload", 17
+	Player.StartItem "WEDReload", 8
+	Player.StartItem "WEEReload", 6
+	Player.StartItem "WEFReload", 5
+	Player.startitem "WEGReload", 28
+	Player.startitem "WEHReload", 50
+	Player.startitem "WEJReload", 1
+	Player.startitem "WEKReload", 60
+	Player.startitem "WEMReload", 20
+	Player.startitem "WENReload", 16
+//==============================================================================
+	Player.startitem "UECReload", 34
+	Player.startitem "UEDReload", 16
+	Player.startitem "UEMReload", 100
+	Player.startitem "UENReload", 16
+//==============================================================================
+	States
+	{
+	Spawn:
+		ARLT A -1
+		Loop
+	See:
+		ARLT BCDC 4
+		Loop
+	Missile:
+		ARLT E 6
+		ARLT F 6
+		Goto Spawn
+	Melee:
+		ARLT F 6 BRIGHT
+		Goto Missile
+	Pain:
+		ARLT G 4
+		ARLT G 4 A_Pain
+		Goto Spawn
+	Death:
+		ARLT H 6
+		ARLT I 6 A_PlayerScream
+		ARLT J 6 A_NoBlocking
+		ARLT K -1
+		Stop
+	XDeath:
+		ARLT L 5
+		ARLT M 5 A_XScream
+		ARLT N 5 A_NoBlocking
+		ARLT O 5
+		ARLT P 5
+		ARLT Q -1
+		Stop
+	}
+}
+
+//==============================================================================
+// Mikhail Kalichev (Time Traveller, U.S.S.R. veteran soldier)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineSoldier : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 105
+	Speed 0.95
+	DamageFactor "Normal", 1.0
+	Mass 100
+	XScale 0.95
+	YScale 0.95
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 105
+	PainChance 255
+	Player.JumpZ 9
+	Player.SoundClass "ARSDPL1"
+	Player.DisplayName "Mikhail Kalichev"
+	Player.Portrait ARSDPH1
+	Player.SideMove 0.95
+	Player.ViewHeight 42
+	Player.AttackZOffset 15
+	Player.MugShotMaxHealth -1
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARSD1FA, ARSDWPB, ARSDWPA
+	Player.Weaponslot 2, ARSD1FD, ARSD1FC, ARSDWPD, ARSDWPC
+	Player.Weaponslot 3, ARSD1FF, ARSDWPF, ARSDWPE
+	Player.Weaponslot 4, ARSDWPH, ARSDWPG
+	Player.Weaponslot 5, ARSDWPJ, ARSDWPI
+	Player.Weaponslot 6, ARSDWPL, ARSDWPK
+	Player.Weaponslot 7, ARSDWPN, ARSDWPM
+*/
+
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARSDWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARSDWPC"
+	Player.StartItem "ARSDWPA"
+	Player.StartItem "ARSDWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "SoldierDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1 //Ammo Converter
+
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WFCReload", 8
+	Player.StartItem "WFDReload", 10
+	Player.StartItem "WFEReload", 6
+	Player.startitem "WFFReload", 8
+	Player.StartItem "WFGReload", 41
+	Player.StartItem "WFHReload", 70
+	Player.StartItem "WFJReload", 1
+	Player.StartItem "WFKReload", 30
+	Player.StartItem "WFMReload", 100
+	Player.startitem "WFNReload", 5
+//==============================================================================
+	Player.StartItem "UFCReload", 16
+	Player.StartItem "UFDReload", 20
+	Player.StartItem "UFFReload", 16
+//==============================================================================
+	States
+	{
+	Spawn:
+		ARSD A -1
+		Loop
+	See:
+		ARSD BBCCDDEE 3
+		Loop
+	Missile:
+		ARSD A 1
+		ARSD FG 6
+		ARSD H 2
+		ARSD G 8
+		ARSD GFA 6
+		Goto Spawn
+	Pain:
+		ARSD I 3
+		ARSD I 3 A_Pain
+		Goto See
+	Death:
+		ARSD J 4 A_PlayerScream
+		ARSD K 4 
+		ARSD L 4 A_NoBlocking
+		ARSD M 4
+		ARSD N -1
+		Stop		
+	XDeath:
+		ARSD J 4 A_XScream
+		ARSD K 4 
+		ARSD L 4 A_NoBlocking
+		ARSD M 4
+		ARSD N -1
+		Stop
+	}
+}
+
+//==============================================================================
+// Luc Williams (Time Traveller, EUNA Space Marine)
+//==============================================================================
+// Basic Stats
+//==============================================================================
+ACTOR MarineFuture : InvisiblePlayer
+{
+	+PLAYERPAWN.NOTHRUSTWHENINVUL
+	Health 95
+	Speed 1.10
+	DamageFactor "Normal", 1.0
+	Mass 120
+	XScale 0.9
+	YScale 0.65
+	
+//==============================================================================
+// Complex Stats
+//==============================================================================
+	Player.MaxHealth 95
+	Player.SideMove 1.10
+	PainChance 255
+	Player.JumpZ 9
+	Player.SoundClass "ARFTPL1"
+	Player.DisplayName "Luc Williams"
+	Player.Portrait ARFTPH1
+	Player.ViewHeight 41
+	Player.AttackZOffset 15
+	Player.MugShotMaxHealth -1
+	
+//==============================================================================
+// Key Configuration
+//==============================================================================
+/*
+	Player.Weaponslot 1, ARFTWPB, ARFTWPA
+	Player.Weaponslot 2, ARFT1GC,ARFTWPD, ARFTWPC
+	Player.Weaponslot 3, ARFTWPF, ARFTWPE
+	Player.Weaponslot 4, ARFT1GH, ARFT1GG, ARFTWPH, ARFTWPG
+	Player.Weaponslot 5, ARFTWPJ, ARFTWPI
+	Player.Weaponslot 6, ARFTWPL, ARFTWPK
+	Player.Weaponslot 7, ARFT1GM, ARFTWPN, ARFTWPM
+*/
+	
+//==============================================================================
+// Starting Weapons
+//==============================================================================
+	Player.StartItem "ARFTWPIN" //Intro
+//==============================================================================
+	Player.StartItem "ARFTWPC"
+	Player.StartItem "ARFTWPA"
+	Player.StartItem "ARFTWPI"
+	Player.StartItem "ARCL1", 45
+	Player.StartItem "ARTR1", 10
+	
+//==============================================================================	
+// Starting Items
+//==============================================================================
+	Player.StartItem "FutureDummy", 1
+	Player.StartItem "Action_Kick",1
+	Player.StartItem "Action_KickCancel", 1
+	Player.StartItem "ARWPPRE", 1
+	
+//==============================================================================
+// Weapon Reloads
+//==============================================================================
+	Player.StartItem "WGCReload", 18
+	Player.StartItem "WGDReload", 6
+	Player.StartItem "WGEReload", 5
+	Player.StartItem "WGFReload", 8
+	Player.startitem "WGGReload", 20
+	Player.startitem "WGHReload", 41
+	Player.startitem "WGJReload", 3
+	Player.startitem "WGKReload", 150
+	Player.startitem "WGMReload", 80
+	Player.startitem "WGNReload", 10
+//==============================================================================
+	Player.startitem "UGCReload", 21
+	Player.startitem "UGGReload", 40
+	Player.startitem "UGHReload", 65
+	Player.startitem "UGMReload", 140
+//==============================================================================
+	States
+	{
+	Spawn:
+		ARFT A -1
+		Loop
+	See:
+		ARFT ABCB 4
+		Loop
+	Missile:
+		ARFT E 6
+		ARFT F 6
+		Goto Spawn
+	Melee:
+		ARFT F 6 BRIGHT
+		Goto Missile
+	Pain:
+		ARFT Q 4
+		ARFT Q 4 A_Pain
+		Goto Spawn
+	Death:
+		ARFT G 6 A_PlayerScream
+		ARFT HIJKLMN 6 
+		ARFT O 6 A_NoBlocking
+		ARFT P -1
+		Stop
+	XDeath:
+		ARFT G 6 A_XScream
+		ARFT NHIJKLM 5
+		ARFT O 5 A_NoBlocking
+		ARFT P -1
+		Stop
+	}
+}

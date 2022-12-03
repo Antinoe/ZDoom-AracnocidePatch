@@ -1,0 +1,184 @@
+//==============================================================================
+// Aracnocide weapon spawners
+//==============================================================================
+// Power Tool
+//==============================================================================
+ACTOR ARWPSPB : RandomSpawner replaces Chainsaw
+{
+	DropItem "ARTRWPB"
+	DropItem "ARRGWPB"
+	DropItem "ARRCWPB"
+	DropItem "ARSCWPB"
+	DropItem "ARLTWPB"
+	DropItem "ARSDWPB"
+	DropItem "ARFTWPB"
+}
+
+//==============================================================================
+// Light Pistol
+//==============================================================================
+ACTOR ARWPSPC : RandomSpawner replaces Pistol
+{
+	DropItem "ARTRWPC"
+	DropItem "ARRGWPC"
+	DropItem "ARRCWPC"
+	DropItem "ARSCWPC"
+	DropItem "ARLTWPC"
+	DropItem "ARSDWPC"
+	DropItem "ARFTWPC"
+}
+
+//==============================================================================
+// Heavy Pistol
+//==============================================================================
+ACTOR ARWPSPD : RandomSpawner
+{
+	DropItem "ARTRWPD"
+	DropItem "ARRGWPD"
+	DropItem "ARRCWPD"
+	DropItem "ARSCWPD"
+	DropItem "ARLTWPD"
+	DropItem "ARSDWPD"
+	DropItem "ARFTWPD"
+}
+
+//==============================================================================
+// Shotgun
+//==============================================================================
+ACTOR ARWPSPE : RandomSpawner
+{
+	DropItem "ARTRWPE"
+	DropItem "ARRGWPE"
+	DropItem "ARRCWPE"
+	DropItem "ARSCWPE"
+	DropItem "ARLTWPE"
+	DropItem "ARSDWPE"
+	DropItem "ARFTWPE"
+}
+
+//==============================================================================
+// Super Shotgun
+//==============================================================================
+ACTOR ARWPSPF : RandomSpawner
+{
+	DropItem "ARTRWPF"
+	DropItem "ARRGWPF"
+	DropItem "ARRCWPF"
+	DropItem "ARSCWPF"
+	DropItem "ARLTWPF"
+	DropItem "ARSDWPF"
+	DropItem "ARFTWPF"
+}
+
+//==============================================================================
+// Submachinegun
+//==============================================================================
+ACTOR ARWPSPG : RandomSpawner //replaces Chaingun
+{
+	DropItem "ARTRWPG"
+	DropItem "ARRGWPG"
+	DropItem "ARRCWPG"
+	DropItem "ARSCWPG"
+	DropItem "ARLTWPG"
+	DropItem "ARSDWPG"
+	DropItem "ARFTWPG"
+}
+
+//==============================================================================
+// Assault Rifle
+//==============================================================================
+ACTOR ARWPSPH : RandomSpawner
+{
+	DropItem "ARTRWPH"
+	DropItem "ARRGWPH"
+	DropItem "ARRCWPH"
+	DropItem "ARSCWPH"
+	DropItem "ARLTWPH"
+	DropItem "ARSDWPH"
+	DropItem "ARFTWPH"
+}
+
+//==============================================================================
+// Throwables
+//==============================================================================
+ACTOR ARWPSPI : RandomSpawner
+{
+	DropItem "ARTRWPI"
+	DropItem "ARRGWPI"
+	DropItem "ARRCWPI"
+	DropItem "ARSCWPI"
+	DropItem "ARLTWPI"
+	DropItem "ARSDWPI"
+	DropItem "ARFTWPI"
+	DropItem "ARTR1"
+}
+
+//==============================================================================
+// Explosives
+//==============================================================================
+ACTOR ARWPSPJ : RandomSpawner replaces RocketLauncher
+{
+	DropItem "ARTRWPJ"
+	DropItem "ARRGWPJ"
+	DropItem "ARRCWPJ"
+	DropItem "ARSCWPJ"
+	DropItem "ARLTWPJ"
+	DropItem "ARSDWPJ"
+	DropItem "ARFTWPJ"
+}
+
+//==============================================================================
+// Thermals
+//==============================================================================
+ACTOR ARWPSPK : RandomSpawner replaces PlasmaRifle
+{
+	DropItem "ARTRWPK"
+	DropItem "ARRGWPK"
+	DropItem "ARRCWPK"
+	DropItem "ARSCWPK"
+	DropItem "ARLTWPK"
+	DropItem "ARSDWPK"
+	DropItem "ARFTWPK"
+}
+
+//==============================================================================
+// Energy
+//==============================================================================
+ACTOR ARWPSPL : RandomSpawner replaces BFG9000
+{
+	DropItem "ARTRWPL"
+	DropItem "ARRGWPL"
+	DropItem "ARRCWPL"
+	DropItem "ARSCWPL"
+	DropItem "ARLTWPL"
+	DropItem "ARSDWPL"
+	DropItem "ARFTWPL"
+}
+
+//==============================================================================
+// Heavy Machinegun
+//==============================================================================
+ACTOR ARWPSPM : RandomSpawner
+{
+	DropItem "ARTRWPM"
+	DropItem "ARRGWPM"
+	DropItem "ARRCWPM"
+	DropItem "ARSCWPM"
+	DropItem "ARLTWPM"
+	DropItem "ARSDWPM"
+	DropItem "ARFTWPM"
+}
+
+//==============================================================================
+// Heavy Rifle
+//==============================================================================
+ACTOR ARWPSPN : RandomSpawner replaces Blursphere
+{
+	DropItem "ARTRWPN"
+	DropItem "ARRGWPN"
+	DropItem "ARRCWPN"
+	DropItem "ARSCWPN"
+	DropItem "ARLTWPN"
+	DropItem "ARSDWPN"
+	DropItem "ARFTWPN"
+}

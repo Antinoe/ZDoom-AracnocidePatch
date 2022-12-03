@@ -1,0 +1,207 @@
+//==============================================================================
+// Aracnocide Documents
+//==============================================================================
+// Pickups & Effects
+//==============================================================================
+#include "Actors/Pickups/AR-Ammo.txt"
+#include "Actors/Pickups/AR-Power.txt"
+#include "Actors/Pickups/AR-Items.txt"
+#include "Actors/Pickups/AR-SFX.txt"
+
+//==============================================================================
+// Weapons
+//==============================================================================
+#Include "Actors/Brain/AR-Players.txt"
+#Include "Actors/Brain/AR-WFX.txt"
+#Include "Actors/Brain/AR-Puffs.txt"
+#Include "Actors/Brain/AR-Base.txt"
+#Include "Actors/Brain/AR-Casings.txt"
+#Include "Actors/Brain/AR-Magazines.txt"
+#Include "Actors/Brain/AR-Spawners.txt"
+#Include "Actors/Brain/AR-AmmoSP.txt"
+#Include "Actors/Brain/AR-Doubles.txt"
+
+//==============================================================================
+// Blake Weapons
+//==============================================================================
+#Include "Actors/Weapons/Blake/ARTRWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Blake/ARTRWPA.txt"
+#Include "Actors/Weapons/Blake/ARTRWPB.txt"
+#Include "Actors/Weapons/Blake/ARTRWPC.txt"
+#Include "Actors/Weapons/Blake/ARTRWPD.txt"
+#Include "Actors/Weapons/Blake/ARTRWPE.txt"
+#Include "Actors/Weapons/Blake/ARTRWPF.txt"
+#Include "Actors/Weapons/Blake/ARTRWPG.txt"
+#Include "Actors/Weapons/Blake/ARTRWPH.txt"
+#Include "Actors/Weapons/Blake/ARTRWPI.txt"
+#Include "Actors/Weapons/Blake/ARTRWPJ.txt"
+#Include "Actors/Weapons/Blake/ARTRWPK.txt"
+#Include "Actors/Weapons/Blake/ARTRWPL.txt"
+#Include "Actors/Weapons/Blake/ARTRWPM.txt"
+#Include "Actors/Weapons/Blake/ARTRWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Blake/ARTR1AC.txt"
+#Include "Actors/Weapons/Blake/ARTR1AD.txt"
+#Include "Actors/Weapons/Blake/ARTR2AD.txt"
+#Include "Actors/Weapons/Blake/ARTR1AH.txt"
+#Include "Actors/Weapons/Blake/ARTR1AL.txt"
+
+//==============================================================================
+// Derrick Weapons
+//==============================================================================
+#Include "Actors/Weapons/Derrick/ARRGWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Derrick/ARRGWPA.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPB.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPC.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPD.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPE.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPF.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPG.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPH.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPI.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPJ.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPK.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPL.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPM.txt"
+#Include "Actors/Weapons/Derrick/ARRGWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Derrick/ARRG1BC.txt"
+#Include "Actors/Weapons/Derrick/ARRG1BD.txt"
+#Include "Actors/Weapons/Derrick/ARRG2BD.txt"
+#Include "Actors/Weapons/Derrick/ARRG1BH.txt"
+#Include "Actors/Weapons/Derrick/ARRG1BN.txt"
+
+//==============================================================================
+// Marion Weapons
+//==============================================================================
+#Include "Actors/Weapons/Marion/ARRCWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Marion/ARRCWPA.txt"
+#Include "Actors/Weapons/Marion/ARRCWPB.txt"
+#Include "Actors/Weapons/Marion/ARRCWPC.txt"
+#Include "Actors/Weapons/Marion/ARRCWPD.txt"
+#Include "Actors/Weapons/Marion/ARRCWPE.txt"
+#Include "Actors/Weapons/Marion/ARRCWPF.txt"
+#Include "Actors/Weapons/Marion/ARRCWPG.txt"
+#Include "Actors/Weapons/Marion/ARRCWPH.txt"
+#Include "Actors/Weapons/Marion/ARRCWPI.txt"
+#Include "Actors/Weapons/Marion/ARRCWPJ.txt"
+#Include "Actors/Weapons/Marion/ARRCWPK.txt"
+#Include "Actors/Weapons/Marion/ARRCWPL.txt"
+#Include "Actors/Weapons/Marion/ARRCWPM.txt"
+#Include "Actors/Weapons/Marion/ARRCWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Marion/ARRC1CC.txt"
+#Include "Actors/Weapons/Marion/ARRC1CD.txt"
+#Include "Actors/Weapons/Marion/ARRC1CE.txt"
+#Include "Actors/Weapons/Marion/ARRC1CG.txt"
+#Include "Actors/Weapons/Marion/ARRC1CH.txt"
+
+//==============================================================================
+// Stella Weapons
+//==============================================================================
+#Include "Actors/Weapons/Stella/ARSCWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Stella/ARSCWPA.txt"
+#Include "Actors/Weapons/Stella/ARSCWPB.txt"
+#Include "Actors/Weapons/Stella/ARSCWPC.txt"
+#Include "Actors/Weapons/Stella/ARSCWPD.txt"
+#Include "Actors/Weapons/Stella/ARSCWPE.txt"
+#Include "Actors/Weapons/Stella/ARSCWPF.txt"
+#Include "Actors/Weapons/Stella/ARSCWPG.txt"
+#Include "Actors/Weapons/Stella/ARSCWPH.txt"
+#Include "Actors/Weapons/Stella/ARSCWPI.txt"
+#Include "Actors/Weapons/Stella/ARSCWPJ.txt"
+#Include "Actors/Weapons/Stella/ARSCWPK.txt"
+#Include "Actors/Weapons/Stella/ARSCWPL.txt"
+#Include "Actors/Weapons/Stella/ARSCWPM.txt"
+#Include "Actors/Weapons/Stella/ARSCWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Stella/ARSC1DC.txt"
+#Include "Actors/Weapons/Stella/ARSC1DD.txt"
+#Include "Actors/Weapons/Stella/ARSC1DG.txt"
+#Include "Actors/Weapons/Stella/ARSC1DN.txt"
+
+//==============================================================================
+// Simon Weapons
+//==============================================================================
+#Include "Actors/Weapons/Simon/ARLTWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Simon/ARLTWPA.txt"
+#Include "Actors/Weapons/Simon/ARLTWPB.txt"
+#Include "Actors/Weapons/Simon/ARLTWPC.txt"
+#Include "Actors/Weapons/Simon/ARLTWPD.txt"
+#Include "Actors/Weapons/Simon/ARLTWPE.txt"
+#Include "Actors/Weapons/Simon/ARLTWPF.txt"
+#Include "Actors/Weapons/Simon/ARLTWPG.txt"
+#Include "Actors/Weapons/Simon/ARLTWPH.txt"
+#Include "Actors/Weapons/Simon/ARLTWPI.txt"
+#Include "Actors/Weapons/Simon/ARLTWPJ.txt"
+#Include "Actors/Weapons/Simon/ARLTWPK.txt"
+#Include "Actors/Weapons/Simon/ARLTWPL.txt"
+#Include "Actors/Weapons/Simon/ARLTWPM.txt"
+#Include "Actors/Weapons/Simon/ARLTWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Simon/ARLT1EC.txt"
+#Include "Actors/Weapons/Simon/ARLT1ED.txt"
+#Include "Actors/Weapons/Simon/ARLT1EM.txt"
+#Include "Actors/Weapons/Simon/ARLT1EN.txt"
+
+//==============================================================================
+// Mikhail Weapons
+//==============================================================================
+#Include "Actors/Weapons/Mikhail/ARSDWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Mikhail/ARSDWPA.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPB.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPC.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPD.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPE.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPF.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPG.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPH.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPI.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPJ.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPK.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPL.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPM.txt"
+#Include "Actors/Weapons/Mikhail/ARSDWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Mikhail/ARSD1FA.txt"
+#Include "Actors/Weapons/Mikhail/ARSD1FC.txt"
+#Include "Actors/Weapons/Mikhail/ARSD1FD.txt"
+#Include "Actors/Weapons/Mikhail/ARSD1FF.txt"
+
+//==============================================================================
+// Luc Weapons
+//==============================================================================
+#Include "Actors/Weapons/Luc/ARFTWPIN.txt" //Intro
+//==============================================================================
+#Include "Actors/Weapons/Luc/ARFTWPA.txt"
+#Include "Actors/Weapons/Luc/ARFTWPB.txt"
+#Include "Actors/Weapons/Luc/ARFTWPC.txt"
+#Include "Actors/Weapons/Luc/ARFTWPD.txt"
+#Include "Actors/Weapons/Luc/ARFTWPE.txt"
+#Include "Actors/Weapons/Luc/ARFTWPF.txt"
+#Include "Actors/Weapons/Luc/ARFTWPG.txt"
+#Include "Actors/Weapons/Luc/ARFTWPH.txt"
+#Include "Actors/Weapons/Luc/ARFTWPI.txt"
+#Include "Actors/Weapons/Luc/ARFTWPJ.txt"
+#Include "Actors/Weapons/Luc/ARFTWPK.txt"
+#Include "Actors/Weapons/Luc/ARFTWPL.txt"
+#Include "Actors/Weapons/Luc/ARFTWPM.txt"
+#Include "Actors/Weapons/Luc/ARFTWPN.txt"
+//==============================================================================
+#Include "Actors/Weapons/Luc/ARFT1GC.txt"
+#Include "Actors/Weapons/Luc/ARFT1GG.txt"
+#Include "Actors/Weapons/Luc/ARFT1GH.txt"
+#Include "Actors/Weapons/Luc/ARFT1GM.txt"
+
+//==============================================================================
+// IWADs
+//==============================================================================
+#Include "Actors/Shared/AR-Hacx.txt"
+#Include "Actors/Shared/AR-Hexen.txt"
+#Include "Actors/Shared/AR-Heretic.txt"

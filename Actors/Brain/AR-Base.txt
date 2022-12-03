@@ -1,0 +1,257 @@
+//==============================================================================
+// Aracnocide Weapon Base
+//==============================================================================
+ACTOR AracnoWeapon : Weapon replaces Weapon
+{
+	+WEAPON.NOALERT
+	+WEAPON.NOAUTOAIM
+	Weapon.Kickback 100
+	Weapon.SelectionOrder 100
+	Inventory.PickupSound "ARWP/WP0/PK1"
+	States
+	{
+	Kick:
+		TNT1 A 0 A_TakeInventory("UpgradeConfirmationToken",256)
+		TNT1 A 0 A_TakeInventory("ConvertConfirmationToken",256)
+		NULL A 0 A_Print("",1)
+		//
+		NULL A 0 A_JumpIfInventory("RangerDummy",1,"RangerKick")
+		NULL A 0 A_JumpIfInventory("TrooperDummy",1,"TrooperKick")
+		NULL A 0 A_JumpIfInventory("ReconDummy",1,"ReconKick")
+		NULL A 0 A_JumpIfInventory("ScientistDummy",1,"ScientistKick")
+		NULL A 0 A_JumpIfInventory("LowtechDummy",1,"LowtechKick")
+		NULL A 0 A_JumpIfInventory("SoldierDummy",1,"SoldierKick")
+		NULL A 0 A_JumpIfInventory("FutureDummy",1,"FutureKick")
+	TrooperKick:
+		TNT1 A 5 Offset(-10,36)
+		WAOF A 1 Offset(-10,32)
+		WAOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WAOF C 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-3)
+		WAOF D 3 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(6,10),0,0,"AR_FightPuff") 
+		WAOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+1)
+		WAOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WAOF C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WAOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WAOF A 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Jump(256,"Ready")
+	RangerKick:
+		TNT1 A 5 Offset(-10,36)
+		WBOF A 1 Offset(-10,32)
+		WBOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF D 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WBOF F 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF G 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-1)
+		WBOF H 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(5,8),0,0,"AR_FightPuff") 
+		WBOF I 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF G 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF F 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF D 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WBOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+0.5)
+		WBOF A 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Jump(256,"Ready")
+	ReconKick:
+		TNT1 A 2 Offset(-10,36)
+		WCOF A 1 Offset(-10,32)
+		WCOF B 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WCOF C 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WCOF D 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WCOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-2)
+		WCOF F 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-2)
+		WCOF G 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(7,12),0,0,"AR_FightPuff") 
+		WCOF H 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+1)
+		WCOF I 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WCOF J 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WCOF K 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WCOF L 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Jump(256,"Ready")
+	ScientistKick:
+		TNT1 A 5 Offset(-10,36)
+		WDOF A 2 Offset(-10,32)
+		WDOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WDOF C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WDOF D 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-1)
+		WDOF E 3 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(4,6),0,0,"AR_FightPuff") 
+		WDOF F 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WDOF G 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WDOF H 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+0.5)
+		WDOF I 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+0.5)
+		NULL A 0 A_Jump(256,"Ready")
+	LowtechKick:
+		TNT1 A 5 Offset(-10,32)
+		WEOF A 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WEOF B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(-1)
+		WEOF C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(4,7),0,0,"AR_CutPuff") 
+		WEOF D 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WEOF E 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		TNT1 A 10
+		NULL A 0 A_Recoil(+0.5)
+		NULL A 0 A_Jump(256,"Ready")
+	SoldierKick:
+		TNT1 A 10 Offset(-10,36)
+		WFOG A 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		NULL A 0 A_Recoil(-1)
+		WFOG B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_CustomPunch(Random(6,10),0,0,"AR_FightPuff") 
+		WFOG C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		NULL A 0 A_Recoil(+1)
+		WFOG D 2 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WFOG C 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WFOG B 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		WFOG A 1 A_WeaponReady(WRF_NoFire|WRF_NoSecondary|WRF_NoSwitch)
+		TNT1 A 10 
+		NULL A 0 A_Jump(256,"Ready")
+	FutureKick:
+		TNT1 A 5 Offset(-10,36)
+		WGAF A 1 Offset(60,32)
+		NULL A 0 A_Takeinventory("KickToken",1)
+		WGAF B 1 Offset(40,32)
+		WGAF C 1 Offset(30,32)
+		WGAF D 1 Offset(20,32)
+		NULL A 0 A_CustomPunch(Random(5,8),0,0,"AR_CutPuff",89)
+		WGAF E 1 Offset(-10,35)
+		WGAF F 1 Offset(-20,35)
+		WGAF G 1 Offset(-30,35)
+		TNT1 A 5
+		NULL A 0 A_Jump(256,"Ready")
+	}
+}
+
+ACTOR BlakeWeapon : AracnoWeapon
+{
+	Weapon.BobStyle   "Smooth"
+	Weapon.BobSpeed 	2.05
+	Weapon.BobRangeX 	0.30
+	Weapon.BobRangeY 	0.40
+	//Inventory.ForbiddenTo MarineRanger, MarineScientist, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
+}
+
+ACTOR DerrickWeapon : AracnoWeapon
+{
+	Weapon.Bobstyle "InverseAlpha"
+  	Weapon.Bobspeed 	1.40
+	Weapon.Bobrangex 	0.40
+	Weapon.Bobrangey 	0.20
+	//Inventory.ForbiddenTo MarineScientist, MarineTrooper, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
+}
+
+ACTOR MarionWeapon : AracnoWeapon
+{
+	Weapon.BobStyle    "Alpha"
+	Weapon.BobSpeed 	2.55
+	Weapon.BobRangeX 	0.30
+	Weapon.BobRangeY 	0.40
+	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineSoldier, MarineFuture
+}
+
+ACTOR StellaWeapon : AracnoWeapon
+{
+	Weapon.BobStyle "InverseSmooth"
+  	Weapon.BobSpeed 	2.00
+	Weapon.BobRangeX 	0.30
+	Weapon.BobRangeY 	0.50
+	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
+}
+
+ACTOR SimonWeapon : AracnoWeapon
+{
+	Weapon.BobStyle "InverseAlpha"
+  	Weapon.BobSpeed 	1.50
+	Weapon.BobRangeX 	0.90
+	Weapon.BobRangeY 	0.75
+	//Inventory.ForbiddenTo MarineRanger, MarineScientist, MarineTrooper, MarineRecon, MarineSoldier, MarineFuture
+}
+
+ACTOR MikhailWeapon : AracnoWeapon
+{
+	Weapon.BobStyle    "Alpha"
+	Weapon.BobSpeed 	1.25
+	Weapon.BobRangeX 	0.30
+	Weapon.BobRangeY 	0.70
+	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineRecon, MarineFuture
+}
+
+ACTOR LucWeapon : AracnoWeapon
+{
+	Weapon.BobStyle    "InverseSmooth"
+	Weapon.BobSpeed 	2.15
+	Weapon.BobRangeX 	0.20
+	Weapon.BobRangeY 	0.10
+	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineRecon, MarineSoldier
+}
+
+// Kicking Commands by WildWeasel (without ACS)
+
+ACTOR Action_Kick : CustomInventory
+{
+   -INVBAR
+   +INVENTORY.UNDROPPABLE
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   States
+   {
+       Use:
+       TNT1 A 0 A_GiveInventory("KickToken",1)
+       Fail
+   }
+}
+
+ACTOR Action_KickCancel : CustomInventory
+{
+   -INVBAR
+   +INVENTORY.UNDROPPABLE 
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+   States
+   {
+       Use:
+       TNT1 A 0 A_TakeInventory("KickToken",1)
+       Fail
+   }
+}
+
+ACTOR KickToken : Inventory
+{
+   -INVBAR
+   +INVENTORY.UNDROPPABLE
+   Inventory.Amount 1
+   Inventory.MaxAmount 1
+}
+
+ACTOR AracnoInvenToken : Inventory //Permanent Inventory thing. (hi yholl)
+{
+	+INVENTORY.IGNORESKILL
+	+INVENTORY.UNTOSSABLE
+	+INVENTORY.UNDROPPABLE
+	Inventory.MaxAmount 1
+}
+
+ACTOR UpgradeConfirmationToken : AracnoInvenToken { }
+ACTOR ConvertConfirmationToken : AracnoInvenToken { }
+
+//END OF FILE
