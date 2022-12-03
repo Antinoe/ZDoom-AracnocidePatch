@@ -5,6 +5,10 @@ ACTOR AracnoWeapon : Weapon replaces Weapon
 {
 	+WEAPON.NOALERT
 	+WEAPON.NOAUTOAIM
+	Weapon.BobStyle "InverseSmooth"
+	Weapon.BobSpeed 2.5
+	Weapon.BobRangeY 0.5
+	Weapon.BobRangeX 0.5
 	Weapon.Kickback 100
 	Weapon.SelectionOrder 100
 	Inventory.PickupSound "ARWP/WP0/PK1"
@@ -144,64 +148,36 @@ ACTOR AracnoWeapon : Weapon replaces Weapon
 
 ACTOR BlakeWeapon : AracnoWeapon
 {
-	Weapon.BobStyle   "Smooth"
-	Weapon.BobSpeed 	2.05
-	Weapon.BobRangeX 	0.30
-	Weapon.BobRangeY 	0.40
 	//Inventory.ForbiddenTo MarineRanger, MarineScientist, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
 }
 
 ACTOR DerrickWeapon : AracnoWeapon
 {
-	Weapon.Bobstyle "InverseAlpha"
-  	Weapon.Bobspeed 	1.40
-	Weapon.Bobrangex 	0.40
-	Weapon.Bobrangey 	0.20
 	//Inventory.ForbiddenTo MarineScientist, MarineTrooper, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
 }
 
 ACTOR MarionWeapon : AracnoWeapon
 {
-	Weapon.BobStyle    "Alpha"
-	Weapon.BobSpeed 	2.55
-	Weapon.BobRangeX 	0.30
-	Weapon.BobRangeY 	0.40
 	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineSoldier, MarineFuture
 }
 
 ACTOR StellaWeapon : AracnoWeapon
 {
-	Weapon.BobStyle "InverseSmooth"
-  	Weapon.BobSpeed 	2.00
-	Weapon.BobRangeX 	0.30
-	Weapon.BobRangeY 	0.50
 	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineRecon, MarineLowtech, MarineSoldier, MarineFuture
 }
 
 ACTOR SimonWeapon : AracnoWeapon
 {
-	Weapon.BobStyle "InverseAlpha"
-  	Weapon.BobSpeed 	1.50
-	Weapon.BobRangeX 	0.90
-	Weapon.BobRangeY 	0.75
 	//Inventory.ForbiddenTo MarineRanger, MarineScientist, MarineTrooper, MarineRecon, MarineSoldier, MarineFuture
 }
 
 ACTOR MikhailWeapon : AracnoWeapon
 {
-	Weapon.BobStyle    "Alpha"
-	Weapon.BobSpeed 	1.25
-	Weapon.BobRangeX 	0.30
-	Weapon.BobRangeY 	0.70
 	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineRecon, MarineFuture
 }
 
 ACTOR LucWeapon : AracnoWeapon
 {
-	Weapon.BobStyle    "InverseSmooth"
-	Weapon.BobSpeed 	2.15
-	Weapon.BobRangeX 	0.20
-	Weapon.BobRangeY 	0.10
 	//Inventory.ForbiddenTo MarineRanger, MarineTrooper, MarineScientist, MarineLowtech, MarineRecon, MarineSoldier
 }
 

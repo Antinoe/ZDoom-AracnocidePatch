@@ -1,0 +1,167 @@
+//==============================================================================
+// Random Shotgun/Assault Rifle Spawner
+//==============================================================================
+ACTOR ARWPSP1 : CustomInventory
+{
+	+LOOKALLAROUND
+	Inventory.Icon "TNT1A0"
+	Inventory.PickupSound ""
+	Inventory.PickupMessage ""
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfInTargetInventory("TrooperDummy"	,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("RangerDummy"	,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ReconDummy"		,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ScientistDummy"	,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("LowtechDummy"	,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("SoldierDummy"	,1,"WPECheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("FutureDummy"	,1,"WPECheck")
+	Failed:
+		NULL A 0 A_Print("Whoops.",5)
+		Fail
+	WPECheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPE",1,"WPHCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPE",1,"WPHCheck")
+		NULL A 0 A_SpawnItem("ARWPSPE")
+		Stop
+	//Revolver Check
+	WPHCheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPH",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPH",1,"RandomLoot")
+		NULL A 0 A_SpawnItem("ARWPSPH")
+		Stop
+	RandomLoot:
+		NULL A 0 A_Jump(96,"RandomLoot2")
+		NULL A 0 A_SpawnItem("ARWPSPE")
+		Stop
+	RandomLoot2:
+		NULL A 0 A_SpawnItem("ARWPSPH")
+		Stop
+	}
+}
+
+//==============================================================================
+// Random Super Shotgun/Heavy Machinegun Spawner
+//==============================================================================
+ACTOR ARWPSP2 : CustomInventory
+{
+	+LOOKALLAROUND
+	Inventory.Icon "TNT1A0"
+	Inventory.PickupSound ""
+	Inventory.PickupMessage ""
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfInTargetInventory("TrooperDummy"	,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("RangerDummy"	,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ReconDummy"		,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ScientistDummy"	,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("LowtechDummy"	,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("SoldierDummy"	,1,"WPFCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("FutureDummy"	,1,"WPFCheck")
+	Failed:
+		NULL A 0 A_Print("Whoops.",5)
+		Fail
+	WPFCheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPF",1,"WPMCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPF",1,"WPMCheck")
+		NULL A 0 A_SpawnItem("ARWPSPF")
+		Stop
+	//Revolver Check
+	WPMCheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPM",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPM",1,"RandomLoot")
+		NULL A 0 A_SpawnItem("ARWPSPM")
+		Stop
+	RandomLoot:
+		NULL A 0 A_Jump(96,"RandomLoot2")
+		NULL A 0 A_SpawnItem("ARWPSPF")
+		Stop
+	RandomLoot2:
+		NULL A 0 A_SpawnItem("ARWPSPM")
+		Stop
+	}
+}
+
+//==============================================================================
+// Random Submachinegun/Revolver Spawner
+//==============================================================================
+ACTOR ARWPSP3 : CustomInventory
+{
+	+LOOKALLAROUND
+	Inventory.Icon "TNT1A0"
+	Inventory.PickupSound ""
+	Inventory.PickupMessage ""
+	States
+	{
+	Spawn:
+		TNT1 A 1 A_Look
+		Loop
+	See:
+		TNT1 A 0 A_JumpIfInTargetInventory("TrooperDummy"	,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("RangerDummy"	,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ReconDummy"		,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ScientistDummy"	,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("LowtechDummy"	,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("SoldierDummy"	,1,"WPGCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("FutureDummy"	,1,"WPGCheck")
+	Failed:
+		NULL A 0 A_Print("Whoops.",5)
+		Fail
+	WPGCheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPG",1,"WPDCheck")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPG",1,"WPDCheck")
+		NULL A 0 A_SpawnItem("ARWPSPG")
+		Stop
+	//Revolver Check
+	WPDCheck:
+		TNT1 A 0 A_JumpIfInTargetInventory("ARTRWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRGWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARRCWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSCWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARLTWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARSDWPD",1,"RandomLoot")
+		TNT1 A 0 A_JumpIfInTargetInventory("ARFTWPD",1,"RandomLoot")
+		NULL A 0 A_SpawnItem("ARWPSPD")
+		Stop
+	RandomLoot:
+		NULL A 0 A_Jump(96,"RandomLoot2")
+		NULL A 0 A_SpawnItem("ARWPSPG")
+		Stop
+	RandomLoot2:
+		NULL A 0 A_SpawnItem("ARWPSPD")
+		Stop
+	}
+}
