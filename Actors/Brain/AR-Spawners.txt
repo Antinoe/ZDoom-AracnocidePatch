@@ -9,11 +9,12 @@ ACTOR ChainsawReplacer : RandomSpawner replaces Chainsaw
 ACTOR PistolReplacer : RandomSpawner replaces Pistol
 {
 	DropItem "ARWPSPC" //Light Pistol
-	DropItem "ARWPSPD" //Heavy Pistol
+	DropItem "ARWPSPG" //Sub-Machinegun
 }
 ACTOR ShotgunReplacer : RandomSpawner replaces Shotgun
 {
 	DropItem "ARWPSPE" //Shotgun
+	DropItem "ARWPSPD" //Heavy Pistol
 	//DropItem "ARWPSPI" //Throwables
 	DropItem "PistolReplacer"
 }
@@ -25,7 +26,6 @@ ACTOR SuperShotgunReplacer : RandomSpawner replaces SuperShotgun
 }
 ACTOR ChaingunReplacer : RandomSpawner replaces Chaingun
 {
-	DropItem "ARWPSPG" //Sub-Machinegun
 	DropItem "ARWPSPH" //Assault Rifle
 	DropItem "ARWPSPM" //Heavy Machinegun
 }
